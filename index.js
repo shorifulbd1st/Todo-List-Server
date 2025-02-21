@@ -94,7 +94,8 @@ async function run() {
             const filter = { _id: new ObjectId(info.taskId) }
             const updateData = {
                 $set: {
-                    status: info.targetColumnId
+                    status: info.targetColumnId,
+                    time: info.time
                 }
             }
             const result = await taskCollection.updateOne(filter, updateData)
