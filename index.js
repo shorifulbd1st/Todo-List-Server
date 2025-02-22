@@ -10,7 +10,7 @@ const port = process.env.PORT || 5000;
 
 const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.o3yie.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`
 const corsOptions = {
-    origin: ['http://localhost:5173', '',],
+    origin: ['http://localhost:5173', 'https://todo-list-2c36b.web.app',],
     credentials: true,
     optionalSuccessStatus: 200,
 }
@@ -95,7 +95,7 @@ async function run() {
             const updateData = {
                 $set: {
                     status: info.targetColumnId,
-                    time: info.time
+                    // time: info.time
                 }
             }
             const result = await taskCollection.updateOne(filter, updateData)
